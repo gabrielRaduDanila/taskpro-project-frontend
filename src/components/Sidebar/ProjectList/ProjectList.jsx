@@ -11,8 +11,7 @@ const ProjectList = () => {
   const [selectedItem, setSelectedItem] = useState(null);
   const projectList = [
     { id: 1, title: "Project 1" },
-    { id: 2, title: "Project 2" },
-    // Alte obiecte de proiect
+    { id: 2, title: "Project 2" }, 
   ];
   const handleItemClick = (projectId) => {
     setSelectedItem(selectedItem === projectId ? null : projectId);
@@ -33,13 +32,11 @@ const ProjectList = () => {
               : styles.listProject
           }
           onClick={() => handleItemClick(project.id)}
-        >
-           {/* <NavLink exact to="/board"> */}
+        > 
           <div className="d-flex align-items-center">
             <img src={icon_project} alt={`project`} />
             <span style={styles.titleProject}>{project.title}</span>
-          </div>
-          {/* </NavLink> */}
+          </div> 
           <div className="d-flex align-items-center gap-2">
             <CDBBtn
               onClick={() => setModalShow(true)}

@@ -1,5 +1,4 @@
-const styles = {
-  // Help
+const styles = { 
   helpText: {
     // fontFamily: "Poppins",
     color: "#FFF",
@@ -155,6 +154,7 @@ const styles = {
     borderRight: "4px solid #BEDBB0",
   },
   btnContainer: {
+    // margin: "15px 0 5px 0",
     marginTop: "20px",
   },
   logoutIcon: {

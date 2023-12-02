@@ -71,8 +71,7 @@ const Sidebar = () => {
         <CDBSidebarFooter>
           <CDBSidebarContent>
             <CDBSidebarMenu>
-              <CDBSidebarMenuItem>
-                {/* <Help /> */}
+              <CDBSidebarMenuItem> 
                 <LogOutBtn />
               </CDBSidebarMenuItem>
             </CDBSidebarMenu>

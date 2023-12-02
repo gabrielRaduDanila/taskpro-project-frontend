@@ -24,11 +24,7 @@ const Help = () => {
             </span>
           </CDBBtn>
         </div>
-        <ModalSidebarHelp show={modalShow} onHide={() => setModalShow(false)} />
-        {/* <NavLink to="/" className="text-decoration-none text-white m-1">
-            Need help?
-        </NavLink>  */}
-        {/* </div > */}
+        <ModalSidebarHelp show={modalShow} onHide={() => setModalShow(false)} /> 
       </CDBBox>
     </CDBContainer>
   );

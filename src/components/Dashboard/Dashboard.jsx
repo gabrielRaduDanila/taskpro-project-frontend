@@ -1,5 +1,5 @@
 import React from "react";
-//import Navbar from "../header/Header";
+import Navbar from "../header/Header";
 import Sidebar from "../Sidebar/Sidebar"; 
 
 export const Dashboard = () => { 
