@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectBoardLists,
   selectBoardFilter,
+  selectBoardIsLoading,
+  selectBoardData,
 } from '../../features/board-slice/selectors';
 import {
   openEditColumnModal,
@@ -26,9 +28,17 @@ import AddCardModal from './AddCardModal';
 import MoveCardModal from './MoveCardModal';
 import EditCardModal from './EditCardModal';
 import DeleteCardModal from './DeleteCardModal';
+import { useEffect, useState } from 'react';
+import Loading from '../loading/Loading';
 
 const Lists = () => {
   const lists = useSelector(selectBoardLists);
+  // const isLoading = useSelector(selectBoardIsLoading);
+  // const boardData = useSelector(selectBoardData);
+
+  // if (isLoading || !boardData) {
+  //   return <Loading />;
+  // }
 
   return (
     <>
@@ -36,7 +46,7 @@ const Lists = () => {
         return (
           <div
             key={list._id}
-            className='main-dashboard-lists col-12 col-sm-6 col-md-4  bg-secondary p-3 rounded-2'
+            className='main-dashboard-lists col-12 col-sm-6 col-md-4  bg-secondary p-1 rounded-2'
           >
             <ListTitle list={list} />
           </div>
@@ -63,6 +73,25 @@ function ListTitle({ list }) {
     ? list.cards.filter((card) => card.labelColor === filter)
     : list.cards;
 
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+  const handleResize = () => {
+    setWindowHeight(window.innerHeight);
+  };
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  const divHeight = windowHeight - 250;
+
+  // const isLoading = useSelector(selectBoardIsLoading);
+  // const boardData = useSelector(selectBoardData);
+
+  // if (isLoading || !boardData) {
+  //   return <Loading />;
+  // }
+
   return (
     <div className='column-title-card text-light '>
       <div className='list-title-card d-flex justify-content-between p-3 bg-dark rounded-2 mb-3'>
@@ -82,7 +111,10 @@ function ListTitle({ list }) {
           </button>
         </div>
       </div>
-      <div className='cards-container'>
+      <div
+        className='cards-container'
+        style={{ height: divHeight, overflow: 'auto' }}
+      >
         {cards.map((card) => (
           <Card key={card._id} card={card} />
         ))}
@@ -109,6 +141,12 @@ function Card({ card }) {
   const thisDay = new Date().toLocaleDateString();
   const today = thisDay === deadline;
   const dispatch = useDispatch();
+  // const isLoading = useSelector(selectBoardIsLoading);
+  // const boardData = useSelector(selectBoardData);
+
+  // if (isLoading || !boardData) {
+  //   return <Loading />;
+  // }
 
   return (
     <div
