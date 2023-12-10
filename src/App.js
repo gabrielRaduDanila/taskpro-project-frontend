@@ -10,7 +10,7 @@ import { selectUser } from './features/auth/selectors.js';
 import { useSelector } from 'react-redux';
 import SharedLayout from './components/shared-layout/SharedLayout';
 import Loading from './components/loading/Loading';
-import LoginForm from './components/login/LoginForm.js';
+import LoginForm from './components/login/LogInForm.js';
 import RegisterForm from './components/register/RegisterForm.js';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from './components/header/ThemeContext.js';
@@ -36,7 +36,7 @@ export const App = () => {
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
-  console.log('Current Theme:', theme);
+  // console.log('Current Theme:', theme);
 
   return isRefreshing ? (
     <div className='loading-container'>
@@ -54,6 +54,10 @@ export const App = () => {
           />
           <Route
             path='/home'
+            element={<PrivateRoute redirectTo='/' component={<Home />} />}
+          ></Route>
+          <Route
+            path='/home/:boardId'
             element={<PrivateRoute redirectTo='/' component={<Home />} />}
           ></Route>
           {/* <Route path='screens-page' element={<ScreensPage />} /> */}

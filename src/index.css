@@ -68,11 +68,30 @@ code {
   color: #fff;
 }
 
-.hQSxZz {
+/* .hQSxZz {
   margin: 25px 15px !important;
-}
+} */
+/* .sc-fPXMVe{
+  margin-top: 90px !important;
+} */
 .bPmpKP {
-  padding-top: 30px !important;
+  padding-top: -25px !important;
+  padding-bottom: 40px !important;
+  }
+  .etlrSz{
+    display:block!important;
+    position:static!important;
+  }
+  .evTQOD {
+    padding-top: 10px!important;
+    padding-bottom: 50px!important;
+  }
+  .erqSTQ{
+    border-bottom:1px solid transparent!important;
+  }
+  .footer{
+    display:block !important;
+    position: static !important;
   }
 .modal-header,
 .modal-footer {
@@ -82,7 +101,9 @@ code {
 .jGeaPm {
   border-bottom: 1px solid black;
 }
-
+.iyMBwe{
+  height:300px;
+}
 input {
   color: #fff;
 }
