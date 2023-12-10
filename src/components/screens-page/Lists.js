@@ -33,7 +33,7 @@ const Lists = () => {
 
   return (
     <>
-      {lists && lists.map((list) => {
+      {lists.map((list) => {
         return (
           <div
             key={list._id}
